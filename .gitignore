@@ -1,0 +1,5 @@
+*.pyc
+/pyscada_laborenergie.egg-info/*
+/.idea/*
+/dist/*
+/build/*
