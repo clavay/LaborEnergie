@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from pyscada.modbus.models import ModbusDevice, ModbusVariable
 from pyscada.models import Device, Variable, Unit, Scaling
 from pyscada.hmi.models import WidgetContentModel
+from . import PROTOCOL_ID
 
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
@@ -249,6 +250,11 @@ class PySenseDevice(WidgetContentModel):
             if field.get_internal_type() == "BooleanField" and '_active' in field.name:
                 Variable.objects.filter(name__contains=field.name.replace('_active', '')).\
                     update(active=getattr(self, str(field).split('.')[-1]))
+
+    protocol_id = PROTOCOL_ID
+
+    def parent_device(self):
+        return self.PySense_device.parent_device()
 
     def __str__(self):
         return self.PySense_device.modbus_device.short_name
