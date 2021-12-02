@@ -254,7 +254,10 @@ class PySenseDevice(WidgetContentModel):
     protocol_id = PROTOCOL_ID
 
     def parent_device(self):
-        return self.PySense_device.parent_device()
+        try:
+            return self.PySense_device.parent_device()
+        except:
+            return None
 
     def __str__(self):
         return self.PySense_device.modbus_device.short_name
