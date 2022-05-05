@@ -7,14 +7,12 @@ from pyscada.hmi.models import WidgetContentModel
 from . import PROTOCOL_ID
 
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-@python_2_unicode_compatible
 class PySenseDevice(WidgetContentModel):
     PySense_device = models.OneToOneField(ModbusDevice, blank=True, null=True, on_delete=models.CASCADE)
 

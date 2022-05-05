@@ -3,10 +3,8 @@ from __future__ import unicode_literals
 
 import pyscada
 
-__version__ = '0.7.1'
+__version__ = '0.7.1rc1'
 __author__ = 'Camille Lavayssière'
-
-default_app_config = 'pyscada.laborenergie.apps.PyScadaLaborEnergieConfig'
 
 PROTOCOL_ID = 14
 
